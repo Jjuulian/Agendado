@@ -1,0 +1,212 @@
+$primary-bg: #e7e9f0;
+$card-bg: #fff;
+$card-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+$card-radius: 16px;
+
+$input-bg: #f9fafb;
+$input-border: #d1d5db;
+$input-border-focus: #6366f1;
+$input-radius: 8px;
+
+$btn-bg: #6366f1;
+$btn-bg-hover: #4f46e5;
+$btn-color: #fff;
+
+$font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+:host {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $primary-bg;
+  font-family: $font-main;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.register-container {
+  min-height: 100vh;
+  width: 100vw;
+  background: $primary-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-family: $font-main;
+}
+
+p-card.register-card {
+  width: 100%;
+  max-width: 500px;
+  background: $card-bg;
+  padding: 2.5rem 2rem;
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+  display: flex;
+  flex-direction: column;
+
+  .p-card-content {
+    padding: 0 !important;
+  }
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.helper-text {
+  font-size: 0.95rem;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+// Agrupación horizontal de campos
+.field-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+
+  .field {
+    flex: 1 1 0;
+    margin-bottom: 0;
+  }
+}
+
+// Campo individual
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.3rem;
+
+  label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #374151;
+  }
+
+  input,
+  p-password,
+  p-datepicker,
+  p-datePicker {
+    font-size: 1rem;
+    border: 1px solid $input-border;
+    border-radius: $input-radius;
+    background: $input-bg;
+    transition: border-color 0.2s;
+    padding: 0.75rem 1rem;
+    width: 100%;
+
+    &:focus {
+      border-color: $input-border-focus;
+      outline: none;
+    }
+  }
+
+  // Para el input de PrimeNG DatePicker
+  ::ng-deep .p-inputtext {
+    font-size: 1rem;
+    border: 1px solid $input-border;
+    border-radius: $input-radius;
+    background: $input-bg !important;
+    transition: border-color 0.2s;
+    padding: 0.75rem 1rem;
+    width: 100%;
+
+    &:focus {
+      border-color: $input-border-focus;
+      outline: none;
+    }
+  }
+
+  .info-text {
+    display: block;
+    color: #6366f1;
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .p-error {
+    color: #dc2626;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+  }
+}
+
+// Botón
+button,
+.p-button {
+  width: 100%;
+  padding: 0.75rem 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: $btn-bg;
+  color: $btn-color;
+  border: none;
+  border-radius: $input-radius;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background: $btn-bg-hover;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+// Enlace de registro/login
+.register-link {
+  text-align: center;
+  margin-top: 1rem;
+
+  p {
+    font-size: 0.95rem;
+    color: #4b5563;
+    margin: 0;
+
+    a {
+      color: #6366f1;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+
+      &:hover,
+      &:focus {
+        color: #4f46e5;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Responsividad
+@media (max-width: 900px) {
+  p-card.register-card {
+    max-width: 98vw;
+    padding: 2rem 0.5rem;
+  }
+  .form-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .field-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .field {
+    margin-bottom: 1.3rem;
+  }
+}
