@@ -1,0 +1,34 @@
+<header class="bg-white border-b border-gray-200 px-6 py-4">
+  <div class="flex items-center justify-between">
+    <div class="flex items-center space-x-4 flex-1">
+      <div class="relative flex-1 max-w-md">
+        <lucide-search class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></lucide-search>
+        <input
+          type="text"
+          class="pl-10 border border-gray-300 rounded-md w-full focus:border-blue-500 focus:ring focus:ring-blue-500 outline-none py-1.5"
+          placeholder="Search tasks..."
+          [value]="searchQuery"
+          (input)="onSearchInput($event)"
+        />
+      </div>
+    </div>
+
+    <div class="flex items-center space-x-3">
+      <button
+        (click)="onCreateTask()"
+        class="flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
+      >
+        <lucide-plus class="w-4 h-4 mr-2"></lucide-plus>
+        New Task
+      </button>
+
+      <button class="p-2 text-gray-500 hover:text-gray-700">
+        <lucide-bell class="w-5 h-5"></lucide-bell>
+      </button>
+
+      <button class="p-2 text-gray-500 hover:text-gray-700">
+        <lucide-settings class="w-5 h-5"></lucide-settings>
+      </button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,12 @@
+.grid-cols-7 > div,
+.grid-cols-7 > ng-container > div {
+  min-height: 10rem; 
+
+}
+
+.calendar-header {
+  position: sticky;
+  top: 0; 
+  z-index: 15;
+  background: #fff;
+}

@@ -1,0 +1,46 @@
+<div class="dashboard-container">
+  <app-sidebar class="sidebar"
+    [viewMode]="viewMode"
+    (viewModeChange)="onViewModeChange($event)"
+    [filterStatus]="filterStatus"
+    (filterStatusChange)="onFilterStatusChange($event)"
+    [filterCategory]="filterCategory"
+    (filterCategoryChange)="onFilterCategoryChange($event)"
+    [filterPriority]="filterPriority"
+    (filterPriorityChange)="onFilterPriorityChange($event)"
+    [categories]="categories"
+    (categoryCreated)="reloadCategories()">
+  </app-sidebar>
+
+  <div class="main-content">
+    <app-header
+      [searchQuery]="searchQuery"
+      (searchChange)="onSearchChange($event)"
+      (createTask)="onCreateTask()">
+    </app-header>
+    <div class="content-scroll">
+      <app-task-list
+        *ngIf="viewMode === 'list'"
+        [date]="selectedDate"
+        [tasks]="filteredTasks"
+        [user]="user"
+        (taskCreated)="onCreateTask()"
+        (dateChange)="onDateChange($event)"
+        (resetToToday)="onResetToToday()"
+        (editTask)="onEditTask($event)"
+        (deleteTaskEvent)="deleteTask($event)"
+        [categories]="categories">
+      </app-task-list>
+
+      <app-calendar
+        *ngIf="viewMode === 'calendar'"
+        [tasks]="filteredTasks"
+        [user]="user"
+        (createTask)="onCreateTask()"
+        (dateSelected)="onDateChange($event)"
+        (editTask)="onEditTask($event)"
+        [categories]="categories">
+      </app-calendar>
+    </div>
+  </div>
+</div>

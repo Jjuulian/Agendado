@@ -1,0 +1,89 @@
+<div
+  class="bg-white rounded-lg border p-4 hover:shadow-md transition-shadow flex items-start justify-between"
+  [ngClass]="{
+    'opacity-60': task.status === 1,
+    'border-red-200 bg-red-50': isOverdue(),
+    'border-gray-200': !isOverdue()
+  }"
+>
+  <div class="flex-1">
+    <div class="flex items-center space-x-2 mb-2">
+      <h3
+        class="font-medium"
+        [ngClass]="{
+          'line-through text-gray-500': task.status === 1,
+          'text-gray-900': task.status !== 1
+        }"
+      >
+        {{ task.title }}
+      </h3>
+      <mat-icon *ngIf="isOverdue()" class="w-4 h-4 text-red-500">error_outline</mat-icon>
+    </div>
+
+    <p *ngIf="task.description" class="text-gray-600 text-sm mb-3 line-clamp-2">
+      {{ task.description }}
+    </p>
+
+    <div class="flex items-center space-x-3 text-sm">
+      <div
+        class="flex items-center space-x-1"
+        [ngClass]="{
+          'text-red-600': isOverdue(),
+          'text-blue-600': isToday(),
+          'text-gray-500': !isOverdue() && !isToday()
+        }"
+      >
+        <mat-icon class="w-4 h-4">event</mat-icon>
+        <span>
+          {{ task.startEventDate | date: isCurrentYear(task.startEventDate) ? 'MMM d' : 'MMM d, y' }}
+        </span>
+      </div>
+      <div class="flex items-center space-x-1 text-gray-500">
+        <mat-icon class="w-4 h-4">schedule</mat-icon>
+        <span>
+          {{ task.endEventDate | date: isCurrentYear(task.endEventDate) ? 'MMM d' : 'MMM d, y' }}
+        </span>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2 mt-3">
+      <span
+        class="px-2 py-0.5 rounded text-xs font-semibold border"
+        [ngClass]="priorityBadgeClass()"
+      >
+        {{ getPriorityLabel() }}
+      </span>
+      <span
+        class="px-2 py-0.5 rounded text-xs font-semibold border"
+        [ngClass]="statusBadgeClass()"
+      >
+        {{ getStatusLabel() }}
+      </span>
+      <span
+        class="px-2 py-0.5 rounded text-xs font-semibold border"
+        [ngClass]="categoryBadgeClass()"
+      >
+        {{ getCategoryLabel() }}
+      </span>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2 ml-4">
+    <button
+      class="p-2 rounded hover:bg-blue-50 transition text-gray-400 hover:text-blue-600"
+      (click)="editTask.emit(task)"
+      aria-label="Editar tarea"
+      title="Editar"
+    >
+      <mat-icon class="w-4 h-4">edit</mat-icon>
+    </button>
+    <button
+      class="p-2 rounded hover:bg-red-50 transition text-gray-400 hover:text-red-600"
+      (click)="deleteTask.emit(task)"
+      aria-label="Eliminar tarea"
+      title="Eliminar"
+    >
+      <mat-icon class="w-4 h-4">delete</mat-icon>
+    </button>
+  </div>
+</div>

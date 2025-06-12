@@ -8,6 +8,7 @@ import { PasswordModule } from 'primeng/password';
 import { DatePickerModule } from 'primeng/datepicker';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -58,17 +59,23 @@ export class RegisterComponent {
     this.loading = true;
     this.errorMsg = '';
 
-    const { email, password } = this.registerForm.value;
+    const { confirmPassword, ...data } = this.registerForm.value;
 
-    this.authService.register({ email, password }).subscribe({
+    if (data.birthDate instanceof Date) {
+      const year = data.birthDate.getFullYear();
+      const month = String(data.birthDate.getMonth() + 1).padStart(2, '0');
+      const day = String(data.birthDate.getDate()).padStart(2, '0');
+      data.birthDate = `${year}-${month}-${day}`;
+    }
+
+    this.authService.register(data).subscribe({
       next: () => {
         this.loading = false;
         this.router.navigate(['/login']);
       },
       error: (err) => {
         this.loading = false;
-        this.errorMsg = 'Error al registrar usuario';
-        console.error(err);
+        this.errorMsg = err.error?.message || 'Error en el registro';
       },
     });
   }

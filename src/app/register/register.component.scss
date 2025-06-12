@@ -67,7 +67,6 @@ p-card.register-card {
   margin-bottom: 1.5rem;
 }
 
-// Agrupación horizontal de campos
 .field-row {
   display: flex;
   gap: 1rem;
@@ -79,7 +78,6 @@ p-card.register-card {
   }
 }
 
-// Campo individual
 .field {
   display: flex;
   flex-direction: column;
@@ -109,7 +107,6 @@ p-card.register-card {
     }
   }
 
-  // Para el input de PrimeNG DatePicker
   ::ng-deep .p-inputtext {
     font-size: 1rem;
     border: 1px solid $input-border;
@@ -140,7 +137,6 @@ p-card.register-card {
   }
 }
 
-// Botón
 button,
 .p-button {
   width: 100%;
@@ -165,7 +161,6 @@ button,
   }
 }
 
-// Enlace de registro/login
 .register-link {
   text-align: center;
   margin-top: 1rem;
@@ -190,7 +185,6 @@ button,
   }
 }
 
-// Responsividad
 @media (max-width: 900px) {
   p-card.register-card {
     max-width: 98vw;

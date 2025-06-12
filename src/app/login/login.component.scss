@@ -1,5 +1,4 @@
-// 🎨 Variables de diseño
-$primary-bg: #e7e9f0; // fondo claro más suave que antes
+$primary-bg: #e7e9f0;
 $card-bg: #ffffff;
 $card-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 $card-radius: 16px;
@@ -15,7 +14,6 @@ $btn-color: #ffffff;
 
 $font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-// Contenedor principal: ocupar toda la pantalla y poner fondo
 .login-container {
   min-height: 100vh;
   width: 100vw;
@@ -29,7 +27,6 @@ $font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
-// Tarjeta de login
 p-card.login-card {
   width: 100%;
   max-width: 400px;
@@ -45,7 +42,6 @@ p-card.login-card {
   }
 }
 
-// Título y texto auxiliar
 .form-title {
   font-size: 2rem;
   font-weight: 700;
@@ -61,7 +57,6 @@ p-card.login-card {
   margin-bottom: 1.5rem;
 }
 
-// Campos de formulario
 .field {
   display: flex;
   flex-direction: column;
@@ -94,7 +89,6 @@ p-card.login-card {
   }
 }
 
-// Botón
 button,
 .p-button {
   width: 100%;
@@ -125,25 +119,24 @@ button,
 
   p {
     font-size: 0.95rem;
-    color: #4b5563; // gris intermedio para el texto
+    color: #4b5563; 
     margin: 0;
 
     a {
-      color: #6366f1; // mismo azul del botón
+      color: #6366f1; 
       font-weight: 600;
       text-decoration: none;
       transition: color 0.2s ease-in-out;
 
       &:hover,
       &:focus {
-        color: #4f46e5; // azul más oscuro al pasar el mouse
+        color: #4f46e5; 
         text-decoration: underline;
       }
     }
   }
 }
 
-// Responsividad
 @media (max-width: 480px) {
   p-card.login-card {
     padding: 2rem 1rem;
