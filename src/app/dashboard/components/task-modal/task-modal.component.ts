@@ -44,7 +44,6 @@ export class TaskModalComponent implements OnInit {
   ngOnInit() {
     const priorityReverseMap: Record<number, string> = { 1: 'high', 2: 'medium', 3: 'low' };
     const statusReverseMap: Record<number, string> = { 1: 'completed', 2: 'pending', 3: 'in-progress' };
-    const categoryReverseMap: Record<number, string> = { 1: 'work', 2: 'personal', 3: 'shopping', 4: 'health' };
 
     this.categories = this.data.categories;
 
@@ -75,8 +74,8 @@ export class TaskModalComponent implements OnInit {
       ],
       category: [
         this.data?.task
-          ? categoryReverseMap[Number(this.data.task.category)] || 'work'
-          : 'work',
+          ? this.data.task.category
+          : (this.categories[0]?.id ?? null),
         Validators.required,
       ],
     }, { validators: this.endDateAfterStartDate });
@@ -93,7 +92,6 @@ export class TaskModalComponent implements OnInit {
 
       const priorityMap: Record<string, number> = { low: 3, medium: 2, high: 1 };
       const statusMap: Record<string, number> = { pending: 2, 'in-progress': 3, completed: 1 };
-      const categoryMap: Record<string, number> = { work: 1, personal: 2, shopping: 3, health: 4 };
 
       function toLocalDateString(date: any): string {
         if (typeof date === 'string') return date;
@@ -112,7 +110,7 @@ export class TaskModalComponent implements OnInit {
         endEventDate,
         priority: priorityMap[formValue.priority] ?? 2,
         status: statusMap[formValue.status] ?? 2,
-        category: categoryMap[formValue.category] ?? 1,
+        category: formValue.category,
 };
       console.log(mapped);
 

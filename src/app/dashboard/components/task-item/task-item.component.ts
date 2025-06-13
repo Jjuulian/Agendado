@@ -46,19 +46,19 @@ export class TaskItemComponent {
 
   getStatusLabel(): string {
     switch (this.task.status) {
-      case 1: return 'Completada';
-      case 2: return 'Pendiente';
-      case 3: return 'En progreso';
+      case 1: return 'Completed';
+      case 2: return 'Pending';
+      case 3: return 'In Progress';
       default: return 'Desconocido';
     }
   }
 
   getPriorityLabel(): string {
     switch (this.task.priority) {
-      case 1: return 'Alta';
-      case 2: return 'Media';
-      case 3: return 'Baja';
-      default: return 'Sin prioridad';
+      case 1: return 'High';
+      case 2: return 'Medium';
+      case 3: return 'Low';
+      default: return 'No priority';
     }
   }
 

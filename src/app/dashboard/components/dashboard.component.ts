@@ -136,7 +136,13 @@ export class DashboardComponent implements OnInit {
         console.log(rq)
         console.log(this.user);
         this.taskService.createTask(rq).subscribe({
-          next: () => this.loadTasksForDate(),
+          next: () =>{
+            if (this.viewMode === 'calendar') {
+            this.loadAllTasks();
+          } else {
+            this.loadTasksForDate();
+          }
+          },
           error: err => console.error('Error creating task:', err)
         });
       }
@@ -147,8 +153,6 @@ export class DashboardComponent implements OnInit {
   onDateChange(newDate: string) {
     this.selectedDate = newDate;
     this.loadTasksForDate(); 
-    console.log(this.userTasks);
-    console.log(this.user?.userId)
   }
 
   onResetToToday() {
@@ -218,11 +222,6 @@ export class DashboardComponent implements OnInit {
           createdAt: task.createdAt ? new Date(task.createdAt).toISOString() : undefined,
           updatedAt: new Date().toISOString(),
         };
-
-        this.taskService.updateTask(task.id!, updatedTask).subscribe({
-          next: () => this.loadTasksForDate(),
-          error: err => console.error('Error updating task:', err),
-        });
       }
     });
   }

@@ -28,7 +28,7 @@
     <mat-error *ngIf="form.get('endDate')?.invalid">End Date is required</mat-error>
   </mat-form-field>
   <mat-error *ngIf="form.hasError('endBeforeStart')">
-    La fecha de finalización no puede ser anterior a la de inicio.
+    End Date can't be later than Start Date.
   </mat-error>
 
   <div class="grid grid-cols-2 gap-4">

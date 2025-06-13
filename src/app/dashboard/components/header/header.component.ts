@@ -1,17 +1,16 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
-import { LucideAngularModule } from 'lucide-angular';
-import { Search, Plus, Bell, Settings } from 'lucide';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TaskModalComponent } from '../task-modal/task-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

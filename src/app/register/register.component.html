@@ -2,17 +2,17 @@
   <p-card class="register-card">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="form-title">Crear cuenta</div>
-      <div class="helper-text">Introduce tus datos para registrarte</div>
+      <div class="helper-text">Introduce your information to register</div>
 
       <div class="field-row">
         <div class="field">
-          <label for="name">Nombre</label>
+          <label for="name">Name</label>
           <input
             id="name"
             type="text"
             pInputText
             formControlName="name"
-            placeholder="Introduce tu nombre"
+            placeholder="Introduce your name"
             autocomplete="name"
             autofocus
             aria-describedby="name-error"
@@ -22,18 +22,18 @@
             id="name-error"
             class="p-error"
           >
-            Nombre és obligatorio
+            Name is required
           </small>
         </div>
 
         <div class="field">
-          <label for="surname">Primer Apellido</label>
+          <label for="surname">First Last Name</label>
           <input
             id="surname"
             type="text"
             pInputText
             formControlName="surname"
-            placeholder="Introduce tu primer apellido"
+            placeholder="Introduce your first last name"
             aria-describedby="surname1-error"
           />
           <small
@@ -41,20 +41,20 @@
             id="surname-error"
             class="p-error"
           >
-            El apellido no és válido
+            The last name is not valid
           </small>
         </div>
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label for="surname2">Segundo Apellido</label>
+          <label for="surname2">Second Last Name</label>
           <input
             id="surname2"
             type="text"
             pInputText
             formControlName="surname2"
-            placeholder="Introduce tu segundo apellido"
+            placeholder="Introduce your second last name"
             aria-describedby="surname2-error"
           />
         </div>
@@ -62,37 +62,37 @@
 
       <div class="field-row">
         <div class="field">
-          <label for="birthDate">Fecha de nacimiento</label>
+          <label for="birthDate">Birth Date</label>
           <p-datePicker
             id="birthDate"
             formControlName="birthDate"
             dateFormat="dd/mm/yy"
-            placeholder="Selecciona tu fecha de nacimiento"
+            placeholder="Select your birth date"
             aria-describedby="birthDate-error"
             [maxDate]="minDate"
           ></p-datePicker>
           <small class="info-text">
-            Solo puedes registrarte si eres mayor de 18 años.
+            You can only register if you are over 18 years old.
           </small>
           <small
             *ngIf="registerForm.get('birthDate')?.invalid && registerForm.get('birthDate')?.touched"
             id="birthDate-error"
             class="p-error"
           >
-            Fecha de nacimiento no válida
+            Birth date is not valid.
           </small>
         </div>
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label for="email">Correo electrónico</label>
+          <label for="email">Email</label>
           <input
             id="email"
             type="email"
             pInputText
             formControlName="email"
-            placeholder="Introduce tu correo"
+            placeholder="Introduce your email"
             autocomplete="email"
             aria-describedby="email-error"
           />
@@ -101,20 +101,20 @@
             id="email-error"
             class="p-error"
           >
-            Correo no válido
+            Email not valid
           </small>
         </div>
       </div>
 
       <div class="field-row">
         <div class="field">
-          <label for="password">Contraseña</label>
+          <label for="password">Password</label>
           <input
             id="password"
             type="password"
             pPassword
             formControlName="password"
-            placeholder="Introduce tu contraseña"
+            placeholder="Introduce your password"
             [feedback]="false"
             autocomplete="new-password"
             aria-describedby="password-error"
@@ -124,18 +124,18 @@
             id="password-error"
             class="p-error"
           >
-            Contraseña obligatoria
+            Password required
           </small>
         </div>
 
         <div class="field">
-          <label for="confirmPassword">Confirmar contraseña</label>
+          <label for="confirmPassword">Confirm Password</label>
           <input
             id="confirmPassword"
             type="password"
             pPassword
             formControlName="confirmPassword"
-            placeholder="Repite tu contraseña"
+            placeholder="Repeat your password"
             [feedback]="false"
             autocomplete="new-password"
             aria-describedby="confirmPassword-error"
@@ -145,7 +145,7 @@
             id="confirmPassword-error"
             class="p-error"
           >
-            Las contraseñas no coinciden
+            Passwords do not match
           </small>
         </div>
       </div>
@@ -154,7 +154,7 @@
         <button
           type="submit"
           pButton
-          label="Registrarse"
+          label="Register"
           [disabled]="registerForm.invalid || loading"
           [loading]="loading"
         ></button>
@@ -164,7 +164,7 @@
       </div>
 
       <div class="register-link">
-        <p>¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>
+        <p>¿Already have an account? <a routerLink="/login">Login</a></p>
       </div>
     </form>
   </p-card>

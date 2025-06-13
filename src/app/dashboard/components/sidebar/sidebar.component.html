@@ -1,6 +1,9 @@
-<div class="w-64 bg-white border-r border-gray-200 flex flex-col">
+<div class="w-64 md:w-64 sm:w-full bg-white border-r border-gray-200 flex flex-col">
   <div class="sidebar-header p-6 border-b border-gray-200">
-    <h1 class="text-xl font-bold text-blue-900">TaskFlow</h1>
+    <div class="flex flex-row items-center justify-center">
+      <img src="assets/favicon.ico" alt="Logo" class="h-10 w-auto mr-3" />
+      <h1 class="text-xl font-bold text-blue-900">Agendado</h1>
+    </div>
     <p class="text-sm text-gray-600 mt-1">Manage your tasks efficiently</p>
     <div class="mt-8">
       <button
@@ -8,7 +11,7 @@
         (click)="logout()"
       >
         <mat-icon class="mr-2">logout</mat-icon>
-        Cerrar sesión
+        Logout
       </button>
     </div>
   </div>
@@ -86,18 +89,18 @@
           (click)="showAddCategory = true"
           *ngIf="!showAddCategory"
         >
-          ➕ Nueva categoría
+          ➕ New Category
         </button>
         <div *ngIf="showAddCategory" class="flex items-center space-x-2 mt-2">
           <input
             type="text"
             [(ngModel)]="newCategoryName"
-            placeholder="Nombre categoría"
+            placeholder="Category name"
             class="flex-1 border rounded px-2 py-1 text-sm"
             (keydown.enter)="addCategory()"
             autofocus
           />
-          <button class="text-green-700" (click)="addCategory()">Crear</button>
+          <button class="text-green-700" (click)="addCategory()">Create</button>
           <button class="text-gray-400" (click)="cancelAddCategory()">✖</button>
         </div>
       </div>

@@ -1,15 +1,15 @@
 <div class="task-list-container p-6 bg-white rounded-2xl shadow-md">
   <div class="list-header flex items-center justify-between mb-6">
-    <h2 class="text-2xl font-bold text-gray-800">Tareas del día</h2>
+    <h2 class="text-2xl font-bold text-gray-800">Tasks</h2>
     <p class="text-gray-500 text-sm mt-1">
-        Fecha seleccionada: <span class="font-semibold">{{ date }}</span>
+        Date: <span class="font-semibold">{{ date }}</span>
       </p>
     <div class="flex items-center space-x-2">
       <button class="flex items-center justify-center border border-gray-300 rounded-md p-2 hover:bg-gray-100 transition" (click)="navigateDay('prev')">
         <mat-icon class="w-4 h-4">chevron_left</mat-icon>
       </button>
       <button class="px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-50 transition" (click)="getToday()">
-        Hoy
+        Today
       </button>
       <button class="flex items-center justify-center border border-gray-300 rounded-md p-2 hover:bg-gray-100 transition" (click)="navigateDay('next')">
         <mat-icon class="w-4 h-4">chevron_right</mat-icon>
@@ -29,6 +29,6 @@
   </div>
 
   <div *ngIf="tasks.length === 0" class="mt-6 text-center text-gray-500 italic">
-    No hay tareas para esta fecha.
+    No tasks for this date.
   </div>
 </div>

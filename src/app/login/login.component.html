@@ -2,16 +2,16 @@
   <p-card class="login-card">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-title">Agendado</div>
-      <div class="helper-text">Introduce tus credenciales para acceder</div>
+      <div class="helper-text">Introduce your credentials</div>
       
       <div class="field">
-        <label for="email">Correo electrónico</label>
+        <label for="email">Email</label>
         <input
           id="email"
           type="email"
           pInputText
           formControlName="email"
-          placeholder="Introduce tu correo"
+          placeholder="Introduce your mail"
           autocomplete="email"
           autofocus
           aria-describedby="email-error"
@@ -21,18 +21,18 @@
           id="email-error"
           class="p-error"
         >
-          Correo no válido
+          Email not valid
         </small>
       </div>
 
       <div class="field">
-        <label for="password">Contraseña</label>
+        <label for="password">Password</label>
         <input
           id="password"
           type="password"
           pPassword
           formControlName="password"
-          placeholder="Introduce tu contraseña"
+          placeholder="Introduce your password"
           [feedback]="false"
           autocomplete="current-password"
           aria-describedby="password-error"
@@ -42,7 +42,7 @@
           id="password-error"
           class="p-error"
         >
-          Contraseña obligatoria
+          Password required
         </small>
       </div>
 
@@ -51,7 +51,7 @@
         <button
           type="submit"
           pButton
-          label="Entrar"
+          label="Login"
           [disabled]="loginForm.invalid || loading"
           [loading]="loading"
         ></button>
@@ -61,7 +61,7 @@
       </div>
 
       <div class="register-link">
-        <p>¿No tienes cuenta? <a routerLink="/register">Regístrate</a></p>
+        <p>¿No account? <a routerLink="/register">Register</a></p>
       </div>
 
     </form>
