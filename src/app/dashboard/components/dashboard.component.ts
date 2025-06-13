@@ -110,8 +110,6 @@ export class DashboardComponent implements OnInit {
       next: (tasks) => this.userTasks = tasks,
       error: (err) => console.error('Error loading tasks for date:', err)
     });
-    console.log(this.userTasks);
-
   }
 
 
@@ -133,8 +131,6 @@ export class DashboardComponent implements OnInit {
           status: result.status,
           category: result.category,
         };
-        console.log(rq)
-        console.log(this.user);
         this.taskService.createTask(rq).subscribe({
           next: () =>{
             if (this.viewMode === 'calendar') {
@@ -201,14 +197,12 @@ export class DashboardComponent implements OnInit {
   }
 
   onEditTask(task: Task) {
-    console.log('Editing task:', task);
     const dialogRef = this.dialog.open(TaskModalComponent, {
       width: '400px',
       data: { categories: this.categories,task }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog closed with result:', result);
       if (result) {
         const updatedTask: TaskRq = {
           userId: this.user?.userId || null,

@@ -33,7 +33,6 @@ export class CalendarComponent implements OnInit {
   dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   ngOnInit() {
-    console.log('Calendar initialized with tasks:', this.tasks);
   }
 
   get daysInMonth(): number {

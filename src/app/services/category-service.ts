@@ -9,12 +9,11 @@ import { CategoryRq } from '../dashboard/DTOs/Request/category-rq.interface';
   providedIn: 'root',
 })
 export class CategoryService {
-  private apiUrl = 'https://localhost:7239/api/Categories'; // Ajusta la URL si es diferente
+  private apiUrl = 'https://localhost:7239/api/Categories';
 
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<CategoryRs[]> {
-    debugger
     return this.http.get<CategoryRs[]>(this.apiUrl);
   }
 

@@ -6,7 +6,6 @@ import { CategoryService } from '../../../services/category-service';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 
-
 @Component({
   selector: 'app-sidebar',
   imports: [
@@ -79,4 +78,3 @@ export class SidebarComponent {
     this.newCategoryName = '';
   }
 }
-

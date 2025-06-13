@@ -10,7 +10,6 @@ interface LoginData {
 interface RegisterData {
   email: string;
   password: string;
-  // agrega otros campos si los tienes
 }
 
 @Injectable({

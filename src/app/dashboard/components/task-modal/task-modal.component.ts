@@ -47,7 +47,6 @@ export class TaskModalComponent implements OnInit {
 
     this.categories = this.data.categories;
 
-    console.log('Categories loaded:', this.categories);
 
     this.form = this.fb.group({
       title: [this.data?.task?.title || '', Validators.required],
@@ -112,8 +111,6 @@ export class TaskModalComponent implements OnInit {
         status: statusMap[formValue.status] ?? 2,
         category: formValue.category,
 };
-      console.log(mapped);
-
       this.dialogRef.close(mapped);
     }
   }
