@@ -222,6 +222,16 @@ export class DashboardComponent implements OnInit {
           createdAt: task.createdAt ? new Date(task.createdAt).toISOString() : undefined,
           updatedAt: new Date().toISOString(),
         };
+        this.taskService.updateTask(task.id, updatedTask).subscribe({
+          next: () => {
+            if (this.viewMode === 'calendar') {
+              this.loadAllTasks();
+            } else {
+              this.loadTasksForDate();
+            }
+          },
+          error: err => console.error('Error updating task:', err)
+        });
       }
     });
   }
